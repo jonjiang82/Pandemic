@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 public class City{
-	ArrayList<City> connectedCities;
+	ArrayList<String> connectedCities;
 	Color color;
 	int yellowInfects;
 	int redInfects;
@@ -10,14 +10,17 @@ public class City{
 	int blackInfects;
 
 	public City(){
-
+		yellowInfects = 0;
+		redInfects = 0;
+		blueInfects = 0;
+		blackInfects = 0;
 	}
 
-	public ArrayList<City> getConnectedCities(){
+	public ArrayList<String> getConnectedCities(){
 		return connectedCities;
 	}
 
-	public addConnectedCity(City city){
+	public addConnectedCity(String city){
 		connectedCities.add(city);
 	}
 
