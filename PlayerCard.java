@@ -1,5 +1,13 @@
+//abstract class representing Player cards, to be extended into cities, events, and epidemics.
+
 public abstract class PlayerCard{
-	boolean isCity;
-	boolean isEpidemic;
-	boolean isEvent;
+	PlayerType cardType;
+
+	public PlayerCard(){
+		
+	}
+
+	public PlayerType getCardType(){
+		return cardType;
+	}
 }

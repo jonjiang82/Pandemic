@@ -1,9 +1,14 @@
 import java.util.HashMap;
+import java.util.ArrayList;
+
 public class Pandemic{
 	HashMap<String, City> map;
-	int infectionRate; //The actual infection rate
+	ArrayList<PlayerCard> playerDeck;
+	ArrayList<PlayerCity> infectionDeck;
 	int infectionCounter; //The location of where the counter is, from 1 to 7
+	int infectionRate; //The actual infection rate
 	int outbreaks; //Number of outbreaks. Game is lost at 8 outbreaks
+	int researchCenters; //Number of research centers not yet placed. Initializes to 6.
 	Disease yellowDisease;
 	Disease redDisease;
 	Disease blueDisease;
@@ -15,6 +20,7 @@ public class Pandemic{
 		infectionRate = 2;
 		infectionCounter = 1;
 		outbreaks = 0;
+		researchCenters = 6;
 
 		//Initialize Diseases
 		yellowDisease = new Disease(Color.YELLOW);
@@ -46,5 +52,26 @@ public class Pandemic{
 		map.get("Miami").addConnectedCity("Washington");
 		// map.get("Miami").addConnectedCity("Mexico City");
 		// map.get("Miami").addConnectedCity("Bogota");
+
+		//Initialize Player Deck
+		playerDeck = new ArrayList<PlayerCard>();
+		playerDeck.add(new PlayerCity("Atlanta"));
+		playerDeck.add(new PlayerCity("Chicago"));
+		playerDeck.add(new PlayerCity("Washington"));
+		playerDeck.add(new PlayerCity("Miami"));
+
+		playerDeck.add(new PlayerEvent(PlayerEventType.AIRLIFT));
+		playerDeck.add(new PlayerEvent(PlayerEventType.FORECAST));
+		playerDeck.add(new PlayerEvent(PlayerEventType.GOVERNMENT_GRANT));
+		playerDeck.add(new PlayerEvent(PlayerEventType.ONE_QUIET_NIGHT));
+		playerDeck.add(new PlayerEvent(PlayerEventType.RESILIENT_POPULATION));
+
+		playerDeck.add(new PlayerEpidemic());
+
+		//Initialize Infection Deck
+		infectionDeck.add(new PlayerCity("Atlanta"));
+		infectionDeck.add(new PlayerCity("Chicago"));
+		infectionDeck.add(new PlayerCity("Washington"));
+		infectionDeck.add(new PlayerCity("Miami"));
 	}
 }

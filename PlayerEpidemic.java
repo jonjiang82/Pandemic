@@ -1,0 +1,8 @@
+//class representing Player Card Epidemics
+
+public class PlayerEpidemic extends PlayerCard{
+	public PlayerEpidemic(){
+		super();
+		cardType = PlayerType.EPIDEMIC;
+	}
+}

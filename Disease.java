@@ -1,3 +1,5 @@
+//POJO representing diseases
+
 public class Disease{
 	Color color;
 	int cubes;

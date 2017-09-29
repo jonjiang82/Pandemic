@@ -1,0 +1,14 @@
+Dev Notes:
+
+City: Class representing cities
+Color: Enum for the 4 colors of diseases
+Disease: Class representing a disease
+Driver: Location of the main function
+InfectionCity: Class representing Cities in the Infection Deck
+Pandemic: Root class for the game
+PlayerCard: Abstract class representing cards in the Player Deck
+PlayerCity: Class representing Cities in the Player Deck or Infection Deck
+PlayerEpidemic: Class representing Epidemics in the Player Deck
+PlayerEvent: Class representing Events in the Player Deck
+PlayerEventType: Enum for the type of Event card
+PlayerType: Enum for the type of Player Card
