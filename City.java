@@ -9,58 +9,56 @@ public class City{
 	int blueInfects;
 	int blackInfects;
 
-	public City(){
+	public City(Color color){
+		connectedCities = new ArrayList<String>();
 		yellowInfects = 0;
 		redInfects = 0;
 		blueInfects = 0;
 		blackInfects = 0;
+		this.color = color;
 	}
 
 	public ArrayList<String> getConnectedCities(){
 		return connectedCities;
 	}
 
-	public addConnectedCity(String city){
+	public void addConnectedCity(String city){
 		connectedCities.add(city);
 	}
 
-	public setColor(Color color){
-		this.color = color;
-	}
-
-	public getColor(){
+	public Color getColor(){
 		return color;
 	}
 
-	public setYellowInfects(int in){
+	public void setYellowInfects(int in){
 		yellowInfects = in;
 	}
 
-	public getYellowInfects(){
+	public int getYellowInfects(){
 		return yellowInfects;
 	}
 
-	public setRedInfects(int in){
+	public void setRedInfects(int in){
 		redInfects = in;
 	}
 
-	public getRedInfects(){
+	public int getRedInfects(){
 		return redInfects;
 	}
 
-	public setBlueInfects(int in){
+	public void setBlueInfects(int in){
 		blueInfects = in;
 	}
 
-	public getBlueInfects(){
+	public int getBlueInfects(){
 		return blueInfects;
 	}
 
-	public setBlackInfects(int in){
+	public void setBlackInfects(int in){
 		blackInfects = in;
 	}
 
-	public getBlackInfects(){
+	public int getBlackInfects(){
 		return blackInfects;
 	}
 }
