@@ -6,6 +6,9 @@ Disease: Class representing a disease
 Driver: Location of the main function
 InfectionCity: Class representing Cities in the Infection Deck
 Pandemic: Root class for the game
+	When adding more cities, adding cities to "cityList" will automatically add cities to "playerDeck" and "infectionDeck".
+	Note that in addition to "cityList", map" still needs to have cities added to it.
+Player: Class representing a player
 PlayerCard: Abstract class representing cards in the Player Deck
 PlayerCity: Class representing Cities in the Player Deck or Infection Deck
 PlayerEpidemic: Class representing Epidemics in the Player Deck

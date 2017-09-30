@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 public class Pandemic{
+	private ArrayList<String> cityList; //A list of strings in alphabetical order, where each string is the name of a city.
+
 	HashMap<String, City> map;
 	ArrayList<PlayerCard> playerDeck;
 	ArrayList<PlayerCity> infectionDeck;
@@ -14,7 +16,14 @@ public class Pandemic{
 	Disease blueDisease;
 	Disease blackDisease;
 
-	public Pandemic(){
+	public Pandemic(int difficulty){
+		//Initialize List of Cities
+		cityList = new ArrayList<String>();
+		cityList.add("Atlanta");
+		cityList.add("Chicago");
+		cityList.add("Miami");
+		cityList.add("Washington");
+
 		//Initialize Board
 		map = new HashMap<String, City>();
 		infectionRate = 2;
@@ -55,10 +64,9 @@ public class Pandemic{
 
 		//Initialize Player Deck
 		playerDeck = new ArrayList<PlayerCard>();
-		playerDeck.add(new PlayerCity("Atlanta"));
-		playerDeck.add(new PlayerCity("Chicago"));
-		playerDeck.add(new PlayerCity("Washington"));
-		playerDeck.add(new PlayerCity("Miami"));
+		for (String cityName : cityList){
+			playerDeck.add(new PlayerCity(cityName));
+		}
 
 		playerDeck.add(new PlayerEvent(PlayerEventType.AIRLIFT));
 		playerDeck.add(new PlayerEvent(PlayerEventType.FORECAST));
@@ -66,12 +74,14 @@ public class Pandemic{
 		playerDeck.add(new PlayerEvent(PlayerEventType.ONE_QUIET_NIGHT));
 		playerDeck.add(new PlayerEvent(PlayerEventType.RESILIENT_POPULATION));
 
-		playerDeck.add(new PlayerEpidemic());
+		for (int i = 0; i < difficulty; i++){
+			playerDeck.add(new PlayerEpidemic());
+		}
 
 		//Initialize Infection Deck
-		infectionDeck.add(new PlayerCity("Atlanta"));
-		infectionDeck.add(new PlayerCity("Chicago"));
-		infectionDeck.add(new PlayerCity("Washington"));
-		infectionDeck.add(new PlayerCity("Miami"));
+		infectionDeck = new ArrayList<PlayerCity>();
+		for (String cityName : cityList){
+			infectionDeck.add(new PlayerCity(cityName));
+		}
 	}
 }
