@@ -2,20 +2,15 @@
 
 import java.util.ArrayList;
 public class City{
-	ArrayList<String> connectedCities;
-	Color color;
-	int yellowInfects;
-	int redInfects;
-	int blueInfects;
-	int blackInfects;
 
-	public City(Color color){
+	private ArrayList<String> connectedCities;
+	private Disease.Type diseaseType;
+	private int[] infections;
+
+	public City(Disease.Type diseaseType){
 		connectedCities = new ArrayList<String>();
-		yellowInfects = 0;
-		redInfects = 0;
-		blueInfects = 0;
-		blackInfects = 0;
-		this.color = color;
+		infections = new int[ Disease.Type.values().length];
+		this.diseaseType = diseaseType;
 	}
 
 	public ArrayList<String> getConnectedCities(){
@@ -26,39 +21,15 @@ public class City{
 		connectedCities.add(city);
 	}
 
-	public Color getColor(){
-		return color;
+	public Disease.Type getDiseaseType(){
+		return diseaseType;
 	}
 
-	public void setYellowInfects(int in){
-		yellowInfects = in;
+	public int getInfection(Disease.Type type){
+		return infections[type.ordinal()];
 	}
 
-	public int getYellowInfects(){
-		return yellowInfects;
-	}
-
-	public void setRedInfects(int in){
-		redInfects = in;
-	}
-
-	public int getRedInfects(){
-		return redInfects;
-	}
-
-	public void setBlueInfects(int in){
-		blueInfects = in;
-	}
-
-	public int getBlueInfects(){
-		return blueInfects;
-	}
-
-	public void setBlackInfects(int in){
-		blackInfects = in;
-	}
-
-	public int getBlackInfects(){
-		return blackInfects;
+	public void setInfection(Disease.Type type, int in){
+		infections[type.ordinal()] = in;
 	}
 }

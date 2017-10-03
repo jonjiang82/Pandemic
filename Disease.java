@@ -1,20 +1,32 @@
 //POJO representing diseases
 
 public class Disease{
-	Color color;
-	int cubes;
-	boolean cured;
-	boolean eradicated;
 
-	public Disease(Color color){
-		this.color = color;
-		cubes = 24;
-		cured = false;
-		eradicated = false;
+	public enum Type{
+		YELLOW,
+		RED,
+		BLUE,
+		BLACK
 	}
 
-	public Color getColor(){
-		return color;
+	public enum State{
+		ACTIVE,
+		CURED,
+		ERADICATED
+	}
+
+	private Disease.Type type;
+	private Disease.State state;
+	private int cubes;
+
+	public Disease(Type type){
+		this.type = type;
+		state = State.ACTIVE;
+		cubes = 24;
+	}
+
+	public Type getDiseaseType(){
+		return type;
 	}
 
 	public int getCubes(){
@@ -25,19 +37,11 @@ public class Disease{
 		this.cubes = cubes;
 	}
 
-	public boolean getCured(){
-		return cured;
+	public State getState(){
+		return state;
 	}
 
-	public void setCured(boolean cured){
-		this.cured = cured;
-	}
-
-	public boolean getEradicated(){
-		return eradicated;
-	}
-
-	public void setEradicated(boolean eradicated){
-		this.eradicated = eradicated;
+	public void setState(Disease.State state){
+		this.state = state;
 	}
 }
