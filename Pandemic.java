@@ -24,8 +24,8 @@ public class Pandemic{
 		map = new HashMap<String, City>();
 		infectionRate = 2;
 		infectionCounter = 1;
-		outbreaks = 0;
-		researchCenters = 6;
+		outbreakse = 0;
+		researchCenters = 6
 
 		//Initialize Diseases
 		diseases = new HashMap<Disease.Type, Disease>();
@@ -80,5 +80,41 @@ public class Pandemic{
 		for (String cityName : cityList){
 			infectionDeck.add(new PlayerCity(cityName));
 		}
+	}
+
+	int debugGetInfectionCounter() {
+		return infectionCounter;
+	}
+
+	void debugSetInfectionCounter(int infectionCounter) {
+		this.infectionCounter = infectionCounter;
+	}
+
+	int debugGetInfectionRate() {
+		return infectionRate;
+	}
+
+	void debugSetInfectionRate(int infectionRate) {
+		this.infectionRate = infectionRate;
+	}
+
+	int debugGetOutbreaks() {
+		return outbreaks;
+	}
+
+	void debugSetOutbreaks(int outbreaks) {
+		this.outbreaks = outbreaks;
+	}
+
+	int debugGetResearchCenters() {
+		return researchCenters;
+	}
+
+	void debugSetResearchCenters(int researchCenters) {
+		this.researchCenters = researchCenters;
+	}
+	
+	ArrayList<String> debugGetCityList() {
+		return cityList;
 	}
 }
