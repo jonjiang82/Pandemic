@@ -117,4 +117,8 @@ public class Pandemic{
 	ArrayList<String> debugGetCityList() {
 		return cityList;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ae0139063e1d59744298b7faaff6b03561484372
