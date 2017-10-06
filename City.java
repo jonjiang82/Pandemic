@@ -1,16 +1,29 @@
 //POJO representing a City
 
 import java.util.ArrayList;
+
 public class City{
 
+	private String name;
 	private ArrayList<String> connectedCities;
 	private Disease.Type diseaseType;
+	private boolean researchStation;
 	private int[] infections;
 
-	public City(Disease.Type diseaseType){
-		connectedCities = new ArrayList<String>();
+	public City(String name, Disease.Type diseaseType, ArrayList<String> connectedCities){
+		this.name = name;
+		this.connectedCities = connectedCities;
 		infections = new int[ Disease.Type.values().length];
 		this.diseaseType = diseaseType;
+		researchStation = false;
+	}
+
+	public City(String name, Disease.Type diseaseType){
+		this.name = name;
+		this.connectedCities = new ArrayList<String>();
+		infections = new int[ Disease.Type.values().length];
+		this.diseaseType = diseaseType;
+		researchStation = false;
 	}
 
 	public ArrayList<String> getConnectedCities(){
@@ -31,5 +44,17 @@ public class City{
 
 	public void setInfection(Disease.Type type, int in){
 		infections[type.ordinal()] = in;
+	}
+
+	public void buildResearchStation() {
+		researchStation = true;
+	}
+
+	public void destroyResearchStation() {
+		researchStation = false;
+	}
+
+	public boolean hasResearchStation() {
+		return researchStation;
 	}
 }

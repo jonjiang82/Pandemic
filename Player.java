@@ -1,10 +1,17 @@
 import java.util.ArrayList;
 public class Player{
-	String location;
-	ArrayList<PlayerCard> hand;
 
-	public Player(){
-		location = "Atlanta";
+	public enum Role {
+		NONE, //test role
+		DISPATCHER
+	}
+
+	private String location;
+	private Player.Role role;
+	private ArrayList<PlayerCard> hand;
+
+	public Player(String startingLocation){
+		location = startingLocation;
 		hand = new ArrayList<PlayerCard>();
 	}
 

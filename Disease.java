@@ -2,14 +2,14 @@
 
 public class Disease{
 
-	public enum Type{
+	public enum Type {
 		YELLOW,
 		RED,
 		BLUE,
 		BLACK
 	}
 
-	public enum State{
+	public enum State {
 		ACTIVE,
 		CURED,
 		ERADICATED
