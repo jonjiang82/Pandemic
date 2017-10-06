@@ -3,6 +3,7 @@ import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
 import java.nio.*;
+import java.util.Scanner;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
@@ -16,8 +17,6 @@ public class Driver {
     private long window;
 
     public void run() {
-        //System.out.println("Hello LWJGL " + Version.getVersion() + "!");
-
         init();
         loop();
 
@@ -127,9 +126,22 @@ public class Driver {
         }
     }
 
-    public static void main(String[] args) {
-        Pandemic game = new Pandemic(4,5);
-        new Driver().run();
+    public static void main(String[] args){
+        Scanner in = new Scanner (System.in);
+        System.out.println("Select an option:");
+        System.out.println("1. Run tests");
+        System.out.println("2. Test image display");
+        String option = in.nextLine();
+        if (option.equals("1")) {
+            System.out.print("Select number of players (2-4): ");
+            int players = Integer.parseInt(in.nextLine());
+            System.out.print("Select difficulty (4-6): ");
+            int difficulty = Integer.parseInt(in.nextLine());
+            Tester tester = new Tester(players, difficulty);
+            tester.runTests();
+        } else if (option.equals("2")) {
+            new Driver().run();
+        }
     }
 
 }

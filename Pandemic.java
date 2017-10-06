@@ -89,6 +89,38 @@ public class Pandemic {
 		}
 	}
 
+	int debugGetInfectionCounter() {
+		return infectionCounter;
+	}
+
+	void debugSetInfectionCounter(int infectionCounter) {
+		this.infectionCounter = infectionCounter;
+	}
+
+	int debugGetInfectionRate() {
+		return infectionRate;
+	}
+
+	void debugSetInfectionRate(int infectionRate) {
+		this.infectionRate = infectionRate;
+	}
+
+	int debugGetOutbreaks() {
+		return outbreaks;
+	}
+
+	void debugSetOutbreaks(int outbreaks) {
+		this.outbreaks = outbreaks;
+	}
+
+	int debugGetResearchCentersLeft() {
+		return researchCentersLeft;
+	}
+
+	void debugSetResearchCentersLeft(int researchCenters) {
+		this.researchCentersLeft = researchCenters;
+	}
+
 	// returns ArrayList of cities
 	public ArrayList<String> getCities() {
 		return new ArrayList<String>(map.keySet());
