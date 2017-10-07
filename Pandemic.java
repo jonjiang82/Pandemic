@@ -11,8 +11,12 @@ public class Pandemic {
 	private int researchCentersLeft; //Number of research centers not yet placed. Initializes to 6.
 	private HashMap<Disease.Type, Disease> diseases;
 	private ArrayList<Player> players;
+	private long seed;
+	private Random rng;
 
 	public Pandemic(int numPlayers, int numEpidemics) {
+		rng = new Random();
+	
 		//Initialize Board
 		infectionRate = 2;
 		infectionCounter = 1;
@@ -82,6 +86,18 @@ public class Pandemic {
 		playerDeck.add(new PlayerEvent(PlayerEventType.RESILIENT_POPULATION));
 
 		//TODO: shuffle deck
+		public void shuffle (ArrayList<PlayerCard> deck){
+			int nextCardIndex = 0;
+			int cardsToShuffle = deck.size();
+			int cardsShuffled = 0;
+			while (cardsToShuffle > 0){
+				nextCardIndex = rng.nextInt() % cardsToShuffle;
+				PlayerCard cardRemoved = deck.remove(nextCardIndex + cardsShuffled);
+				deck.add(0, cardRemoved);
+				cardsShuffled++;
+				cardsToShuffle--;
+			}
+		}
 
 		//TODO: put epidemic cards in evened out places
 		for (int i = 0; i < numEpidemics; i++) {
@@ -124,5 +140,14 @@ public class Pandemic {
 	// returns ArrayList of cities
 	public ArrayList<String> getCities() {
 		return new ArrayList<String>(map.keySet());
+	}
+	
+	public void setSeed(long seed){
+		this.seed = seed;
+		rng.setSeed(seed);
+	}
+	
+	void debugGetSeed(){
+		return seed;
 	}
 }
