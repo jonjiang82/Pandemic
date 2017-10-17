@@ -86,22 +86,24 @@ public class Pandemic {
 		playerDeck.add(new PlayerEvent(PlayerEventType.RESILIENT_POPULATION));
 
 		//TODO: shuffle deck
-		public void shuffle (ArrayList<PlayerCard> deck){
-			int nextCardIndex = 0;
-			int cardsToShuffle = deck.size();
-			int cardsShuffled = 0;
-			while (cardsToShuffle > 0){
-				nextCardIndex = rng.nextInt() % cardsToShuffle;
-				PlayerCard cardRemoved = deck.remove(nextCardIndex + cardsShuffled);
-				deck.add(0, cardRemoved);
-				cardsShuffled++;
-				cardsToShuffle--;
-			}
-		}
+		shuffle(playerDeck);
 
 		//TODO: put epidemic cards in evened out places
 		for (int i = 0; i < numEpidemics; i++) {
 			playerDeck.add(new PlayerEpidemic());
+		}
+	}
+
+	public void shuffle (ArrayList<PlayerCard> deck){
+		int nextCardIndex = 0;
+		int cardsToShuffle = deck.size();
+		int cardsShuffled = 0;
+		while (cardsToShuffle > 0){
+			nextCardIndex = rng.nextInt() % cardsToShuffle;
+			PlayerCard cardRemoved = deck.remove(nextCardIndex + cardsShuffled);
+			deck.add(0, cardRemoved);
+			cardsShuffled++;
+			cardsToShuffle--;
 		}
 	}
 
