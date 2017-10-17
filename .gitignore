@@ -2,3 +2,5 @@
 *.jar
 .classpath
 .project
+.idea
+out

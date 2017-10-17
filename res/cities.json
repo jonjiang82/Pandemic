@@ -1,0 +1,25 @@
+{
+  "Cities": [
+	{
+  	  Name: "Atlanta",
+  		DiseaseType:"BLUE",
+  		Coordinates: { x: 5, y: 5},
+  		ConnectedCities: [
+  			"Chicago",
+  			"Miami",
+  			"Washington"
+  		]
+  	}, {
+  	  Name: "Chicago",
+  		DiseaseType:"BLUE",
+  		Coordinates: { x: 5, y: 5},
+  		ConnectedCities: [
+  			"Atlanta",
+  			"Montreal",
+  			"MexicoCity",
+  			"LosAngeles",
+  			"SanFrancisco"
+  		]
+  	}
+  ]
+}
