@@ -15,3 +15,8 @@ PlayerEpidemic: Class representing Epidemics in the Player Deck
 PlayerEvent: Class representing Events in the Player Deck
 PlayerEventType: Enum for the type of Event card
 PlayerType: Enum for the type of Player Card
+
+Todo:
+Any Todo comments
+Json
+Player actions

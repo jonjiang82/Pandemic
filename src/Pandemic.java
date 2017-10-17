@@ -149,7 +149,7 @@ public class Pandemic {
 		rng.setSeed(seed);
 	}
 	
-	void debugGetSeed(){
+	long debugGetSeed(){
 		return seed;
 	}
 }
