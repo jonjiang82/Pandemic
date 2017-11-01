@@ -8,7 +8,7 @@ public class Pandemic {
 	private int infectionCounter; //The location of where the counter is, from 1 to 7
 	private int infectionRate; //The actual infection rate
 	private int outbreaks; //Number of outbreaks. Game is lost at 8 outbreaks
-	private int researchCentersLeft; //Number of research centers not yet placed. Initializes to 6.
+	private int researchStationLeft; //Number of research station not yet placed. Initializes to 6.
 	private HashMap<Disease.Type, Disease> diseases;
 	private ArrayList<Player> players;
 	private long seed;
@@ -21,7 +21,7 @@ public class Pandemic {
 		infectionRate = 2;
 		infectionCounter = 1;
 		outbreaks = 0;
-		researchCentersLeft = 6;
+		researchStationLeft = 6;
 
 		//Initialize Diseases
 		diseases = new HashMap<Disease.Type, Disease>();
@@ -31,7 +31,7 @@ public class Pandemic {
 
 		players = new ArrayList<Player>();
 		for (int i = 0; i < numPlayers; i++) {
-			players.add(new Player("Atlanta"));
+			players.add(new Player(this, "Atlanta"));
 		}
 		initializeMap();
 		initializePlayerDeck(numEpidemics);
@@ -107,6 +107,38 @@ public class Pandemic {
 		}
 	}
 
+	public City getCity(String cityName) {
+		return map.get(cityName);
+	}
+
+	public boolean buildResearchStation(String cityName) {
+		if (researchStationLeft < 1) { // fail if no more research stations
+			return false;
+		}
+		return buildResearchStation(cityName, "");
+	}
+
+	public boolean buildResearchStation(String cityName, String destroyStationAt) {
+		// if no more research stations left, try to destroy given research station
+		if (researchStationLeft < 1) {
+			City destroyCity = map.get(destroyStationAt);
+			if (destroyCity.hasResearchStation()) {
+				destroyCity.destroyResearchStation();
+				researchStationLeft++;
+			} else {
+				return false; // fail if there is no research station there to destroy
+			}
+		}
+
+		City city = map.get(cityName);
+		if (city.hasResearchStation()) {
+			return false; // fail if there is already a research station there
+		}
+		city.buildResearchStation();
+		researchStationLeft--;
+		return true;
+	}
+
 	int debugGetInfectionCounter() {
 		return infectionCounter;
 	}
@@ -131,12 +163,12 @@ public class Pandemic {
 		this.outbreaks = outbreaks;
 	}
 
-	int debugGetResearchCentersLeft() {
-		return researchCentersLeft;
+	int debugGetResearchStationsLeft() {
+		return researchStationLeft;
 	}
 
-	void debugSetResearchCentersLeft(int researchCenters) {
-		this.researchCentersLeft = researchCenters;
+	void debugSetResearchStationsLeft(int researchStations) {
+		this.researchStationLeft = researchStations;
 	}
 
 	// returns ArrayList of cities

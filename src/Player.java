@@ -6,11 +6,13 @@ public class Player{
 		DISPATCHER
 	}
 
+	private Pandemic Pandemic;
 	private String location;
 	private Player.Role role;
 	private ArrayList<PlayerCard> hand;
 
-	public Player(String startingLocation){
+	public Player(Pandemic game, String startingLocation){
+		Pandemic = game;
 		location = startingLocation;
 		hand = new ArrayList<PlayerCard>();
 	}
@@ -46,4 +48,20 @@ public class Player{
 			}
 		}
 	}
+
+	public boolean buildResearchStation(){
+		return Pandemic.buildResearchStation(location);
+	}
+
+	//3. Treat a disease in a city
+	//	a. If the disease is cured, remove all blocks. Otherwise remove 1.
+	//	b. We can worry about what the Medic does later.
+	public void treat() {
+
+	}
+
+	public boolean researchCure() {
+		return false;
+	}
+
 }
