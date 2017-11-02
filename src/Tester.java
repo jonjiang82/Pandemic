@@ -1,8 +1,9 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 public class Tester {
 	Pandemic game;
 	
-	public Tester(int numPlayers, int numEpidemics) {
+	public Tester(int numPlayers, int numEpidemics) throws FileNotFoundException{
 		game = new Pandemic(numPlayers, numEpidemics);
 	}
 	

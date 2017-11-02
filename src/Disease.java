@@ -25,6 +25,20 @@ public class Disease{
 		cubes = 24;
 	}
 
+	public static Type getTypeFromString(String str){
+		str = str.toUpperCase();
+		switch (str){
+			case "YELLOW":
+				return Type.YELLOW;
+			case "RED":
+				return Type.RED;
+			case "BLACK":
+				return Type.BLACK;
+			default:
+				return Type.BLUE;
+		}
+	}
+
 	public Type getDiseaseType(){
 		return type;
 	}
@@ -41,7 +55,7 @@ public class Disease{
 		return state;
 	}
 
-	public void setState(Disease.State state){
+	public void setState(State state){
 		this.state = state;
 	}
 }

@@ -1,4 +1,8 @@
+import java.io.FileNotFoundException;
 import java.util.*;
+import java.io.File;
+import java.io.FileInputStream;
+import org.json.*;
 
 public class Pandemic {
 
@@ -16,7 +20,7 @@ public class Pandemic {
 	private long seed;
 	private Random rng;
 
-	public Pandemic(int numPlayers, int numEpidemics) {
+	public Pandemic(int numPlayers, int numEpidemics) throws FileNotFoundException{
 		rng = new Random();
 	
 		//Initialize Board
@@ -45,8 +49,23 @@ public class Pandemic {
 		}
 	}
 
-	private void initializeMap() {
+	private void initializeMap() throws FileNotFoundException{
 		map = new HashMap<String, City>();
+		File citiesJSON = new File("res/cities.json");
+		FileInputStream citiesJSONinput = new FileInputStream(citiesJSON);
+		JSONTokener citiesTokener = new JSONTokener(citiesJSONinput);
+		JSONObject root = new JSONObject(citiesTokener);
+		JSONArray cities = root.getJSONArray("Cities");
+		for (int i = 0; i < cities.length(); i++) {
+			JSONObject city = cities.getJSONObject(i);
+			City mapCity = new City(city.getString("Name"), Disease.getTypeFromString(city.getString("DiseaseType")));
+			JSONArray connectedCities = city.getJSONArray("ConnectedCities");
+			for (int j = 0; j < connectedCities.length(); j++){
+				String connectedCity = connectedCities.getString(j);
+				mapCity.addConnectedCity(connectedCity);
+			}
+			map.put(city.getString("Name"), mapCity);
+		}
 
 		//hardcoded test cities - will be replaced with data importation
 
