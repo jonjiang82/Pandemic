@@ -6,13 +6,13 @@ public class Player{
 		DISPATCHER
 	}
 
-	private Pandemic Pandemic;
+	private Pandemic game;
 	private String location;
 	private Player.Role role;
 	private ArrayList<PlayerCard> hand;
 
 	public Player(Pandemic game, String startingLocation){
-		Pandemic = game;
+		game = game;
 		location = startingLocation;
 		hand = new ArrayList<PlayerCard>();
 	}
@@ -50,7 +50,7 @@ public class Player{
 	}
 
 	public boolean buildResearchStation(){
-		return Pandemic.buildResearchStation(location);
+		return game.buildResearchStation(location);
 	}
 
 	//3. Treat a disease in a city

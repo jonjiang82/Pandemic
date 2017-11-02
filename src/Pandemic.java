@@ -8,7 +8,7 @@ public class Pandemic {
 	private int infectionCounter; //The location of where the counter is, from 1 to 7
 	private int infectionRate; //The actual infection rate
 	private int outbreaks; //Number of outbreaks. Game is lost at 8 outbreaks
-	private int researchStationLeft; //Number of research station not yet placed. Initializes to 6.
+	private int researchStationsLeft; //Number of research station not yet placed. Initializes to 6.
 	private HashMap<Disease.Type, Disease> diseases;
 	private ArrayList<Player> players;
 	private long seed;
@@ -21,7 +21,7 @@ public class Pandemic {
 		infectionRate = 2;
 		infectionCounter = 1;
 		outbreaks = 0;
-		researchStationLeft = 6;
+		researchStationsLeft = 6;
 
 		//Initialize Diseases
 		diseases = new HashMap<Disease.Type, Disease>();
@@ -112,7 +112,7 @@ public class Pandemic {
 	}
 
 	public boolean buildResearchStation(String cityName) {
-		if (researchStationLeft < 1) { // fail if no more research stations
+		if (researchStationsLeft < 1) { // fail if no more research stations
 			return false;
 		}
 		return buildResearchStation(cityName, "");
@@ -120,11 +120,11 @@ public class Pandemic {
 
 	public boolean buildResearchStation(String cityName, String destroyStationAt) {
 		// if no more research stations left, try to destroy given research station
-		if (researchStationLeft < 1) {
+		if (researchStationsLeft < 1) {
 			City destroyCity = map.get(destroyStationAt);
 			if (destroyCity.hasResearchStation()) {
 				destroyCity.destroyResearchStation();
-				researchStationLeft++;
+				researchStationsLeft++;
 			} else {
 				return false; // fail if there is no research station there to destroy
 			}
@@ -135,7 +135,7 @@ public class Pandemic {
 			return false; // fail if there is already a research station there
 		}
 		city.buildResearchStation();
-		researchStationLeft--;
+		researchStationsLeft--;
 		return true;
 	}
 
@@ -164,11 +164,11 @@ public class Pandemic {
 	}
 
 	int debugGetResearchStationsLeft() {
-		return researchStationLeft;
+		return researchStationsLeft;
 	}
 
 	void debugSetResearchStationsLeft(int researchStations) {
-		this.researchStationLeft = researchStations;
+		this.researchStationsLeft = researchStations;
 	}
 
 	// returns ArrayList of cities
