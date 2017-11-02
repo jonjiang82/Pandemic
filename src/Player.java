@@ -53,15 +53,43 @@ public class Player{
 		return game.buildResearchStation(location);
 	}
 
-	//3. Treat a disease in a city
-	//	a. If the disease is cured, remove all blocks. Otherwise remove 1.
-	//	b. We can worry about what the Medic does later.
-	public void treat() {
+	//	public void treat() {
+	//		treat(game.getCity(location).getDiseaseType());
+	//	}
 
+	public void treat(Disease.Type diseaseType) {
+		City city = game.getCity(location);
+		if (city.getInfection(diseaseType) > 0) {
+			if (game.getDisease(diseaseType).getState() == Disease.State.CURED) {
+				city.setInfection(diseaseType, 0);
+			} else {
+				city.setInfection(diseaseType, city.getInfection(diseaseType) - 1);
+			}
+		}
 	}
 
-	public boolean researchCure() {
-		return false;
+	// will fail if exact conditions are not met (eg if there are too many cards in cardsUsed)
+	public boolean researchCure(Disease.Type diseaseType, ArrayList<PlayerCity> cardsUsed) {
+		// check if disease needs to be cured
+		if (game.getDisease(diseaseType).getState() != Disease.State.ACTIVE) {
+			return false;
+		}
+
+		// check if we have the right amount of cards
+		if (cardsUsed.size() != 5) { // 4 for researcher
+			return false;
+		}
+
+		// check if all cards are the right diseaseType
+		for (PlayerCity card : cardsUsed) {
+			if (game.getCity(card.getCity()).getDiseaseType() != diseaseType) {
+				return false;
+			}
+		}
+
+		hand.removeAll(cardsUsed); // cardsUsed is assume to be a subset of hand
+		game.getDisease(diseaseType).setState(Disease.State.CURED);
+		return true;
 	}
 
 }

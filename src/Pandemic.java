@@ -111,6 +111,10 @@ public class Pandemic {
 		return map.get(cityName);
 	}
 
+	public Disease getDisease(Disease.Type diseaseType) {
+		return diseases.get(diseaseType);
+	}
+
 	public boolean buildResearchStation(String cityName) {
 		if (researchStationsLeft < 1) { // fail if no more research stations
 			return false;

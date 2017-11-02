@@ -1,7 +1,7 @@
 //class representing Player Card Cities
 
 public class PlayerCity extends PlayerCard{
-	String city;
+	private String city;
 
 	public PlayerCity(String city){
 		super();
