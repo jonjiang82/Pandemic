@@ -35,12 +35,12 @@ public class Pandemic {
 		}
 		initializeMap();
 		initializePlayerDeck(numEpidemics);
-
 		//Initialize Infection Deck
 		infectionDeck = new ArrayList<PlayerCity>();
 		for (String cityName : getCities()) {
 			infectionDeck.add(new PlayerCity(cityName));
 		}
+		
 	}
 
 	private void initializeMap() {
@@ -85,7 +85,6 @@ public class Pandemic {
 		playerDeck.add(new PlayerEvent(PlayerEventType.ONE_QUIET_NIGHT));
 		playerDeck.add(new PlayerEvent(PlayerEventType.RESILIENT_POPULATION));
 
-		//TODO: shuffle deck
 		shuffle(playerDeck);
 
 		//TODO: put epidemic cards in evened out places
@@ -100,6 +99,7 @@ public class Pandemic {
 		int cardsShuffled = 0;
 		while (cardsToShuffle > 0){
 			nextCardIndex = rng.nextInt() % cardsToShuffle;
+			if (nextCardIndex < 0) nextCardIndex = nextCardIndex*(-1);
 			PlayerCard cardRemoved = deck.remove(nextCardIndex + cardsShuffled);
 			deck.add(0, cardRemoved);
 			cardsShuffled++;
