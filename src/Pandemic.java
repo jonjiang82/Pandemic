@@ -59,12 +59,15 @@ public class Pandemic {
 		for (int i = 0; i < cities.length(); i++) {
 			JSONObject city = cities.getJSONObject(i);
 			City mapCity = new City(city.getString("Name"), Disease.getTypeFromString(city.getString("DiseaseType")));
+			map.put(city.getString("Name"), mapCity);
+		}
+		for (int i = 0; i < cities.length();i++){
+			JSONObject city = cities.getJSONObject(i);
+			City mapCity = map.get(city.getString("Name"));
 			JSONArray connectedCities = city.getJSONArray("ConnectedCities");
 			for (int j = 0; j < connectedCities.length(); j++){
-				String connectedCity = connectedCities.getString(j);
-				mapCity.addConnectedCity(connectedCity);
+				mapCity.addConnectedCity(map.get(connectedCities.getString(j)));
 			}
-			map.put(city.getString("Name"), mapCity);
 		}
 
 		//hardcoded test cities - will be replaced with data importation
@@ -187,6 +190,15 @@ public class Pandemic {
 	// returns ArrayList of cities
 	public ArrayList<City> getCities() {
 		return new ArrayList<City>(map.values());
+	}
+
+	public ArrayList<String> getCityNames(){
+		ArrayList<City> cityCities = getCities();
+		ArrayList<String> cityNames = new ArrayList<String>();
+		for (City city : cityCities){
+			cityNames.add(city.getName());
+		}
+		return cityNames;
 	}
 	
 	public void setSeed(long seed){

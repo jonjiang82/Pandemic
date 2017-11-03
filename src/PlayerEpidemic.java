@@ -3,6 +3,6 @@
 public class PlayerEpidemic extends PlayerCard{
 	public PlayerEpidemic(){
 		super();
-		cardType = PlayerType.EPIDEMIC;
+		cardType = PlayerCard.Type.EPIDEMIC;
 	}
 }

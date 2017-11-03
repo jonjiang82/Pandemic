@@ -5,7 +5,7 @@ public class PlayerEvent extends PlayerCard{
 
 	public PlayerEvent(PlayerEventType type){
 		super();
-		cardType = PlayerType.EVENT;
+		cardType = PlayerCard.Type.EVENT;
 		this.type = type;
 	}
 

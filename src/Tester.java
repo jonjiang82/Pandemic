@@ -1,19 +1,17 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 public class Tester {
-	Pandemic game;
-	
 	public Tester(int numPlayers, int numEpidemics) throws FileNotFoundException{
-		game = new Pandemic(numPlayers, numEpidemics);
+		Pandemic.instance = new Pandemic(numPlayers, numEpidemics);
 	}
 	
 	public void runTests() {
-		System.out.println("testCityList result: " + testCityList(game));
+		System.out.println("testCityList result: " + testCityList());
 	}
 	
-	private boolean testCityList(Pandemic game) {
+	private boolean testCityList() {
 		boolean answer = true;
-		ArrayList<String> cityList = game.getCities();
+		ArrayList<String> cityList = Pandemic.instance.getCityNames();
 		System.out.print("City List: ");
 		for (String c : cityList) {
 			System.out.print(c + " ");

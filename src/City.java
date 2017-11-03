@@ -49,4 +49,8 @@ public class City{
 	public boolean hasResearchStation() {
 		return researchStation;
 	}
+
+	public String getName(){
+		return name;
+	}
 }
