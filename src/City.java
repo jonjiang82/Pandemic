@@ -5,32 +5,24 @@ import java.util.ArrayList;
 public class City{
 
 	private String name;
-	private ArrayList<String> connectedCities;
+	private ArrayList<City> connectedCities;
 	private Disease.Type diseaseType;
 	private boolean researchStation;
 	private int[] infections;
 
-	public City(String name, Disease.Type diseaseType, ArrayList<String> connectedCities){
-		this.name = name;
-		this.connectedCities = connectedCities;
-		infections = new int[ Disease.Type.values().length];
-		this.diseaseType = diseaseType;
-		researchStation = false;
-	}
-
 	public City(String name, Disease.Type diseaseType){
 		this.name = name;
-		this.connectedCities = new ArrayList<String>();
+		this.connectedCities = new ArrayList<City>();
 		infections = new int[ Disease.Type.values().length];
 		this.diseaseType = diseaseType;
 		researchStation = false;
 	}
 
-	public ArrayList<String> getConnectedCities(){
+	public ArrayList<City> getConnectedCities(){
 		return connectedCities;
 	}
 
-	public void addConnectedCity(String city){
+	public void addConnectedCity(City city){
 		connectedCities.add(city);
 	}
 

@@ -1,15 +1,15 @@
 //class representing Player Card Cities
 
 public class PlayerCity extends PlayerCard{
-	private String city;
+	private City city;
 
-	public PlayerCity(String city){
+	public PlayerCity(City city){
 		super();
-		cardType = PlayerType.CITY;
+		cardType = PlayerCard.Type.CITY;
 		this.city = city;
 	}
 
-	public String getCity(){
+	public City getCity(){
 		return city;
 	}
 }

@@ -12,38 +12,35 @@ public class Player{
 		SCIENTIST
 	}
 
-	private Pandemic game;
-	private String location;
+	private City location;
 	private Player.Role role;
 	private ArrayList<PlayerCard> hand;
 
-	public Player(Pandemic game, String startingLocation){
-		game = game;
+	public Player(City startingLocation){
 		location = startingLocation;
 		hand = new ArrayList<PlayerCard>();
 	}
 
-	public String getLocation(){
+	public City getLocation(){
 		return location;
 	}
 
-	public void setLocation(String location){
+	public void setLocation(City location){
 		this.location = location;
 	}
 
-	public boolean moveLocation(String destination) {
+	public boolean moveLocation(City destination) {
 		return moveLocation(destination, null);
 	}
 
-	public boolean moveLocation(String destination, PlayerCity cardCost) {
+	public boolean moveLocation(City destination, PlayerCity cardCost) {
 		// fail if you're already there
 		if (location.equals(destination)) {
 			return false;
 		}
 
-		City currentCity = game.getCity(location);
-		if (currentCity.getConnectedCities().contains(destination)) { // drive/ferry
-		} else if (currentCity.hasResearchStation() && game.getCity(destination).hasResearchStation()) { // shuttle flight
+		if (location.getConnectedCities().contains(destination)) { // drive/ferry
+		} else if (location.hasResearchStation() && destination.hasResearchStation()) { // shuttle flight
 		} else if (cardCost == null) { // fail if cardCost is null
 			return false;
 		} else if (cardCost.getCity() == destination || cardCost.getCity() == location) { // direct & charter flight
@@ -80,8 +77,31 @@ public class Player{
 		}
 	}
 
-	public boolean buildResearchStation(){
-		return game.buildResearchStation(location);
+	public boolean buildResearchStation() {
+		return buildResearchStation(null);
+	}
+
+	public boolean buildResearchStation(City destroyStationAt) {
+		// if no more research stations left, try to destroy given research station
+		if (Pandemic.instance.getResearchStationsLeft() < 1) {
+			if (destroyStationAt == null) {
+				return false;
+			}
+			if (destroyStationAt.hasResearchStation()) {
+				destroyStationAt.destroyResearchStation();
+				Pandemic.instance.adjustResearchStationsLeft(1);
+			} else {
+				return false; // fail if there is no research station there to destroy
+			}
+		}
+
+		if (location.hasResearchStation()) {
+			return false; // fail if there is already a research station there
+		}
+
+		location.buildResearchStation();
+		Pandemic.instance.adjustResearchStationsLeft(-1);
+		return true;
 	}
 
 	//	public void treat() {
@@ -89,12 +109,11 @@ public class Player{
 	//	}
 
 	public void treat(Disease.Type diseaseType) {
-		City city = game.getCity(location);
-		if (city.getInfection(diseaseType) > 0) {
-			if (game.getDisease(diseaseType).getState() == Disease.State.CURED) {
-				city.setInfection(diseaseType, 0);
+		if (location.getInfection(diseaseType) > 0) {
+			if (Pandemic.instance.getDisease(diseaseType).getState() == Disease.State.CURED) {
+				location.setInfection(diseaseType, 0);
 			} else {
-				city.setInfection(diseaseType, city.getInfection(diseaseType) - 1);
+				location.setInfection(diseaseType, location.getInfection(diseaseType) - 1);
 			}
 		}
 	}
@@ -102,7 +121,7 @@ public class Player{
 	// will fail if exact conditions are not met (eg if there are too many cards in cardsUsed)
 	public boolean researchCure(Disease.Type diseaseType, ArrayList<PlayerCity> cardsUsed) {
 		// check if disease needs to be cured
-		if (game.getDisease(diseaseType).getState() != Disease.State.ACTIVE) {
+		if (Pandemic.instance.getDisease(diseaseType).getState() != Disease.State.ACTIVE) {
 			return false;
 		}
 
@@ -113,13 +132,13 @@ public class Player{
 
 		// check if all cards are the right diseaseType
 		for (PlayerCity card : cardsUsed) {
-			if (game.getCity(card.getCity()).getDiseaseType() != diseaseType) {
+			if (card.getCity().getDiseaseType() != diseaseType) {
 				return false;
 			}
 		}
 
 		hand.removeAll(cardsUsed); // cardsUsed is assume to be a subset of hand
-		game.getDisease(diseaseType).setState(Disease.State.CURED);
+		Pandemic.instance.getDisease(diseaseType).setState(Disease.State.CURED);
 		return true;
 	}
 

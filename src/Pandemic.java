@@ -2,6 +2,8 @@ import java.util.*;
 
 public class Pandemic {
 
+	public static Pandemic instance; // when creating a new Pandemic, remember to set this static instance
+
 	private HashMap<String, City> map;
 	private ArrayList<PlayerCard> playerDeck;
 	private ArrayList<PlayerCity> infectionDeck;
@@ -29,53 +31,57 @@ public class Pandemic {
 			diseases.put(t, new Disease(t));
 		}
 
-		players = new ArrayList<Player>();
-		for (int i = 0; i < numPlayers; i++) {
-			players.add(new Player(this, "Atlanta"));
-		}
 		initializeMap();
 		initializePlayerDeck(numEpidemics);
 		//Initialize Infection Deck
 		infectionDeck = new ArrayList<PlayerCity>();
-		for (String cityName : getCities()) {
-			infectionDeck.add(new PlayerCity(cityName));
+		for (City city : getCities()) {
+			infectionDeck.add(new PlayerCity(city));
 		}
-		
+
+		players = new ArrayList<Player>();
+		for (int i = 0; i < numPlayers; i++) {
+			players.add(new Player(map.get("Atlanta")));
+		}
 	}
 
 	private void initializeMap() {
 		map = new HashMap<String, City>();
 
-		City atlanta = new City("Atlanta", Disease.Type.BLUE);
-		atlanta.addConnectedCity("Chicago");
-		atlanta.addConnectedCity("Washington");
-		atlanta.addConnectedCity("Miami");
-		map.put("Atlanta", atlanta);
+		//hardcoded test cities - will be replaced with data importation
 
+		// create all cities first
+		map.put("Atlanta", new City("Atlanta", Disease.Type.BLUE));
 		map.put("Chicago", new City("Chicago", Disease.Type.BLUE));
-		map.get("Chicago").addConnectedCity("Atlanta");
-		// map.get("Chicago").addConnectedCity("Montreal");
-		// map.get("Chicago").addConnectedCity("Mexico City");
-		// map.get("Chicago").addConnectedCity("Los Angeles");
-		// map.get("Chicago").addConnectedCity("San Francisco");
-
 		map.put("Washington", new City("Washington", Disease.Type.BLUE));
-		// map.get("Washington").addConnectedCity("Montreal");
-		map.get("Washington").addConnectedCity("Atlanta");
-		// map.get("Washington").addConnectedCity("New York");
-		map.get("Washington").addConnectedCity("Miami");
-
 		map.put("Miami", new City("Miami", Disease.Type.YELLOW));
-		map.get("Miami").addConnectedCity("Atlanta");
-		map.get("Miami").addConnectedCity("Washington");
-		// map.get("Miami").addConnectedCity("Mexico City");
-		// map.get("Miami").addConnectedCity("Bogota");
+
+		//then add all connected cities
+		map.get("Atlanta").addConnectedCity(map.get("Chicago"));
+		map.get("Atlanta").addConnectedCity(map.get("Washington"));
+		map.get("Atlanta").addConnectedCity(map.get("Miami"));
+
+		map.get("Chicago").addConnectedCity(map.get("Atlanta"));
+		// map.get("Chicago").addConnectedCity(map.get("Montreal"));
+		// map.get("Chicago").addConnectedCity(map.get("Mexico City"));
+		// map.get("Chicago").addConnectedCity(map.get("Los Angeles"));
+		// map.get("Chicago").addConnectedCity(map.get("San Francisco"));
+
+		// map.get("Washington").addConnectedCity(map.get("Montreal"));
+		map.get("Washington").addConnectedCity(map.get("Atlanta"));
+		// map.get("Washington").addConnectedCity(map.get("New York"));
+		map.get("Washington").addConnectedCity(map.get("Miami"));
+
+		map.get("Miami").addConnectedCity(map.get("Atlanta"));
+		map.get("Miami").addConnectedCity(map.get("Washington"));
+		// map.get("Miami").addConnectedCity(map.get("Mexico City"));
+		// map.get("Miami").addConnectedCity(map.get("Bogota"));
 	}
 
 	private void initializePlayerDeck(int numEpidemics) {
 		playerDeck = new ArrayList<PlayerCard>();
-		for (String cityName : getCities()) {
-			playerDeck.add(new PlayerCity(cityName));
+		for (City city : getCities()) {
+			playerDeck.add(new PlayerCity(city));
 		}
 
 		//Event Cards
@@ -115,32 +121,16 @@ public class Pandemic {
 		return diseases.get(diseaseType);
 	}
 
-	public boolean buildResearchStation(String cityName) {
-		if (researchStationsLeft < 1) { // fail if no more research stations
-			return false;
-		}
-		return buildResearchStation(cityName, "");
+	public int getResearchStationsLeft() {
+		return researchStationsLeft;
 	}
 
-	public boolean buildResearchStation(String cityName, String destroyStationAt) {
-		// if no more research stations left, try to destroy given research station
-		if (researchStationsLeft < 1) {
-			City destroyCity = map.get(destroyStationAt);
-			if (destroyCity.hasResearchStation()) {
-				destroyCity.destroyResearchStation();
-				researchStationsLeft++;
-			} else {
-				return false; // fail if there is no research station there to destroy
-			}
-		}
+	public void setResearchStationsLeft(int researchStationsLeft) {
+		this.researchStationsLeft = researchStationsLeft;
+	}
 
-		City city = map.get(cityName);
-		if (city.hasResearchStation()) {
-			return false; // fail if there is already a research station there
-		}
-		city.buildResearchStation();
-		researchStationsLeft--;
-		return true;
+	public void adjustResearchStationsLeft(int adjustment) {
+		this.researchStationsLeft += adjustment;
 	}
 
 	int debugGetInfectionCounter() {
@@ -176,8 +166,8 @@ public class Pandemic {
 	}
 
 	// returns ArrayList of cities
-	public ArrayList<String> getCities() {
-		return new ArrayList<String>(map.keySet());
+	public ArrayList<City> getCities() {
+		return new ArrayList<City>(map.values());
 	}
 	
 	public void setSeed(long seed){
