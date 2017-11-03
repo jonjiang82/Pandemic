@@ -18,5 +18,9 @@ PlayerType: Enum for the type of Player Card
 
 Todo:
 Any Todo comments
-Json
 Player actions
+Game setup
+
+Things that should not get broken by any commits:
+JSON reader
+Test result
