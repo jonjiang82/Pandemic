@@ -3,7 +3,13 @@ public class Player{
 
 	public enum Role {
 		NONE, //test role
-		DISPATCHER
+		CONTINGENCYPLANNER,
+		DISPATCHER,
+		MEDIC,
+		OPERATIONSEXPERT,
+		QUARANTINESPECIALIST,
+		RESEARCHER,
+		SCIENTIST
 	}
 
 	private Pandemic game;
@@ -25,13 +31,38 @@ public class Player{
 		this.location = location;
 	}
 
+	public boolean moveLocation(String destination) {
+		return moveLocation(destination, null);
+	}
+
+	public boolean moveLocation(String destination, PlayerCity cardCost) {
+		// fail if you're already there
+		if (location.equals(destination)) {
+			return false;
+		}
+
+		City currentCity = game.getCity(location);
+		if (currentCity.getConnectedCities().contains(destination)) { // drive/ferry
+		} else if (currentCity.hasResearchStation() && game.getCity(destination).hasResearchStation()) { // shuttle flight
+		} else if (cardCost == null) { // fail if cardCost is null
+			return false;
+		} else if (cardCost.getCity() == destination || cardCost.getCity() == location) { // direct & charter flight
+			hand.remove(cardCost); // cardCost assumed to be in player hand
+		} else { // else fail
+			return false;
+		}
+
+		location = destination;
+		return true;
+	}
+
 	public void addCardToHand(PlayerCard card){
 		hand.add(card);
 	}
 
 	public void removeCityFromHand(PlayerCity city){
 		for (int i = 0; i < hand.size(); i++){
-			if (hand.get(i).getCardType() == PlayerType.CITY){
+			if (hand.get(i).getCardType() == PlayerCard.Type.CITY){
 				if (((PlayerCity)hand.get(i)).getCity().equals(city.getCity())){
 					hand.remove(i);
 				}
@@ -41,7 +72,7 @@ public class Player{
 
 	public void removeEventFromHand(PlayerEvent event){
 		for (int i = 0; i < hand.size(); i++){
-			if (hand.get(i).getCardType() == PlayerType.EVENT){
+			if (hand.get(i).getCardType() == PlayerCard.Type.EVENT){
 				if (((PlayerEvent)hand.get(i)).getType() == event.getType()){
 					hand.remove(i);
 				}
@@ -76,7 +107,7 @@ public class Player{
 		}
 
 		// check if we have the right amount of cards
-		if (cardsUsed.size() != 5) { // 4 for researcher
+		if (cardsUsed.size() != 5) { // 4 for scientist
 			return false;
 		}
 
