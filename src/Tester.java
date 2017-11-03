@@ -14,7 +14,7 @@ public class Tester {
 		ArrayList<String> cityList = Pandemic.instance.getCityNames();
 		System.out.print("City List: ");
 		for (String c : cityList) {
-			System.out.print(c + " ");
+			System.out.print(c + ", ");
 		}
 		System.out.println();
 		if (!cityList.contains("Atlanta") || !cityList.contains("Chicago") ||

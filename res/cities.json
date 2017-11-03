@@ -21,7 +21,11 @@
         "y": 5
       },
       "ConnectedCities": [
-        "Atlanta"
+        "Atlanta",
+        "San Francisco",
+        "Montreal",
+        "Los Angeles",
+        "Mexico City"
       ]
     },
     {
@@ -33,19 +37,633 @@
       },
       "ConnectedCities": [
         "Atlanta",
-        "Miami"
+        "Miami",
+        "Montreal",
+        "New York"
       ]
     },
     {
-      "Name": "Miami",
+      "Name": "San Francisco",
       "DiseaseType": "BLUE",
       "Coordinates": {
         "x": 5,
         "y": 5
       },
       "ConnectedCities": [
+        "Tokyo",
+        "Manila",
+        "Los Angeles",
+        "Chicago"
+      ]
+    },
+    {
+      "Name": "Montreal",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Chicago",
+        "Washington",
+        "New York"
+      ]
+    },
+    {
+      "Name": "New York",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Montreal",
+        "Washington",
+        "London",
+        "Madrid"
+      ]
+    },
+    {
+      "Name": "London",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "New York",
+        "Paris",
+        "Essen",
+        "Madrid"
+      ]
+    },
+    {
+      "Name": "Madrid",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "New York",
+        "Paris",
+        "London",
+        "Sao Paulo",
+        "Algiers"
+      ]
+    },
+    {
+      "Name": "Paris",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Madrid",
+        "Essen",
+        "London",
+        "Milan",
+        "Algiers"
+      ]
+    },
+    {
+      "Name": "Essen",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Paris",
+        "London",
+        "Milan",
+        "St. Petersburg"
+      ]
+    },
+    {
+      "Name": "St. Petersburg",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Essen",
+        "Istanbul",
+        "Moscow"
+      ]
+    },
+    {
+      "Name": "Milan",
+      "DiseaseType": "BLUE",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Essen",
+        "Paris",
+        "Istanbul"
+      ]
+    },
+    {
+      "Name": "Miami",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
         "Atlanta",
-        "Washington"
+        "Washington",
+        "Mexico City",
+        "Bogota"
+      ]
+    },
+    {
+      "Name": "Mexico City",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Chicago",
+        "Los Angeles",
+        "Miami",
+        "Bogota",
+        "Lima"
+      ]
+    },
+    {
+      "Name": "Los Angeles",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Sydney",
+        "San Francisco",
+        "Chicago",
+        "Mexico City"
+      ]
+    },
+    {
+      "Name": "Bogota",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Miami",
+        "Lima",
+        "Buenos Aires",
+        "Mexico City",
+        "Sao Paulo"
+      ]
+    },
+    {
+      "Name": "Lima",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Bogota",
+        "Mexico City",
+        "Santiago"
+      ]
+    },
+    {
+      "Name": "Santiago",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Lima"
+      ]
+    },
+    {
+      "Name": "Buenos Aires",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Bogota",
+        "Sao Paulo"
+      ]
+    },
+    {
+      "Name": "Sao Paulo",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Bogota",
+        "Buenos Aires",
+        "Madrid",
+        "Lagos"
+      ]
+    },
+    {
+      "Name": "Lagos",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Sao Paulo",
+        "Kinshasa",
+        "Khartoum"
+      ]
+    },
+    {
+      "Name": "Kinshasa",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Lagos",
+        "Khartoum",
+        "Johannesburg"
+      ]
+    },
+    {
+      "Name": "Khartoum",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Lagos",
+        "Kinshasa",
+        "Johannesburg",
+        "Cairo"
+      ]
+    },
+    {
+      "Name": "Johannesburg",
+      "DiseaseType": "YELLOW",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Kinshasa",
+        "Khartoum"
+      ]
+    },
+    {
+      "Name": "Algiers",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Madrid",
+        "Paris",
+        "Istanbul",
+        "Cairo"
+      ]
+    },
+    {
+      "Name": "Istanbul",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Milan",
+        "St. Petersburg",
+        "Algiers",
+        "Cairo",
+        "Moscow",
+        "Baghdad"
+      ]
+    },
+    {
+      "Name": "Cairo",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Algiers",
+        "Istanbul",
+        "Baghdad",
+        "Riyadh",
+        "Khartoum"
+      ]
+    },
+    {
+      "Name": "Moscow",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "St. Petersburg",
+        "Istanbul",
+        "Tehran"
+      ]
+    },
+    {
+      "Name": "Baghdad",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Riyadh",
+        "Karachi",
+        "Istanbul",
+        "Cairo",
+        "Tehran"
+      ]
+    },
+    {
+      "Name": "Riyadh",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Baghdad",
+        "Karachi",
+        "Cairo"
+      ]
+    },
+    {
+      "Name": "Tehran",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Moscow",
+        "Baghdad",
+        "Karachi",
+        "Delhi"
+      ]
+    },
+    {
+      "Name": "Karachi",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Tehran",
+        "Baghdad",
+        "Riyadh",
+        "Mumbai",
+        "Delhi"
+      ]
+    },
+    {
+      "Name": "Mumbai",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Karachi",
+        "Delhi",
+        "Chennai"
+      ]
+    },
+    {
+      "Name": "Delhi",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Tehran",
+        "Karachi",
+        "Mumbai",
+        "Chennai",
+        "Kolkata"
+      ]
+    },
+    {
+      "Name": "Chennai",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Mumbai",
+        "Delhi",
+        "Kolkata",
+        "Bangkok",
+        "Jakarta"
+      ]
+    },
+    {
+      "Name": "Kolkata",
+      "DiseaseType": "BLACK",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Delhi",
+        "Chennai",
+        "Bangkok",
+        "Hong Kong"
+      ]
+    },
+    {
+      "Name": "Beijing",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Seoul",
+        "Shanghai"
+      ]
+    },
+    {
+      "Name": "Seoul",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Beijing",
+        "Shanghai",
+        "Tokyo"
+      ]
+    },
+    {
+      "Name": "Shanghai",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Beijing",
+        "Seoul",
+        "Tokyo",
+        "Taipei",
+        "Hong Kong"
+      ]
+    },
+    {
+      "Name": "Tokyo",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Seoul",
+        "Shanghai",
+        "Osaka",
+        "San Francisco"
+      ]
+    },
+    {
+      "Name": "Osaka",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Tokyo",
+        "Taipei"
+      ]
+    },
+    {
+      "Name": "Taipei",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Osaka",
+        "Shanghai",
+        "Hong Kong",
+        "Manila"
+      ]
+    },
+    {
+      "Name": "Hong Kong",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Taipei",
+        "Shanghai",
+        "Manila",
+        "Ho Chi Minh City",
+        "Bangkok",
+        "Kolkata"
+      ]
+    },
+    {
+      "Name": "Bangkok",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Kolkata",
+        "Hong Kong",
+        "Ho Chi Minh City",
+        "Jakarta",
+        "Chennai"
+      ]
+    },
+    {
+      "Name": "Ho Chi Minh City",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Bangkok",
+        "Hong Kong",
+        "Manila",
+        "Jakarta"
+      ]
+    },
+    {
+      "Name": "Manila",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Hong Kong",
+        "Taipei",
+        "Ho Chi Minh City",
+        "Sydney",
+        "San Francisco"
+      ]
+    },
+    {
+      "Name": "Jakarta",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Chennai",
+        "Bangkok",
+        "Ho Chi Minh City",
+        "Sydney"
+      ]
+    },
+    {
+      "Name": "Sydney",
+      "DiseaseType": "RED",
+      "Coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "ConnectedCities": [
+        "Jakarta",
+        "Manila",
+        "Los Angeles"
       ]
     }
   ]
