@@ -1,5 +1,7 @@
 Dev Notes:
 
+This project is being worked on in Intellij.
+
 City: Class representing cities
 Color: Enum for the 4 colors of diseases
 Disease: Class representing a disease
