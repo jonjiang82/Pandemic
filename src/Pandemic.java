@@ -17,11 +17,13 @@ public class Pandemic {
 	private int researchStationsLeft; //Number of research station not yet placed. Initializes to 6.
 	private HashMap<Disease.Type, Disease> diseases;
 	private ArrayList<Player> players;
+	private int numPlayers;
 	private long seed;
 	private Random rng;
 
 	public Pandemic(int numPlayers, int numEpidemics) throws FileNotFoundException{
 		rng = new Random();
+		this.numPlayers = numPlayers;
 	
 		//Initialize Board
 		infectionRate = 2;
@@ -132,6 +134,12 @@ public class Pandemic {
 			deck.add(0, cardRemoved);
 			cardsShuffled++;
 			cardsToShuffle--;
+		}
+	}
+
+	public void gameLoop(){
+		for (int i = 0; i < numPlayers; i++){
+			players.get(i).makeMove();
 		}
 	}
 

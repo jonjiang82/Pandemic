@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class Player{
 
 	public enum Role {
@@ -142,4 +143,20 @@ public class Player{
 		return true;
 	}
 
+	public void makeMove(){
+		for (int i = 0; i < 4; i++){
+			makeAction();
+		}
+	}
+
+	private void makeAction(){
+		System.out.println("Here are the cities connected to " + location);
+		for (City city : location.getConnectedCities()){
+			System.out.println(city);
+		}
+		System.out.print("Choose one to move to: ");
+		Scanner in = new Scanner(System.in);
+		String choice = in.nextLine();
+		moveLocation(Pandemic.instance.getCity(choice));
+	}
 }
