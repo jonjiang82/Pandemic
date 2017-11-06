@@ -146,10 +146,12 @@ public class Player{
 	public void makeMove(){
 		for (int i = 0; i < 4; i++){
 			makeAction();
+			//TODO: Things in between each player's 4 actions such as checking for another player using an event
 		}
 	}
 
 	private void makeAction(){
+		//TODO: All of the other actions Players need to be able to do
 		System.out.println("Here are the cities connected to " + location);
 		for (City city : location.getConnectedCities()){
 			System.out.println(city);

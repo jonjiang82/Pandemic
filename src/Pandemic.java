@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import org.json.*;
 
 public class Pandemic {
-
 	public static Pandemic instance; // when creating a new Pandemic, remember to set this static instance
 
 	private HashMap<String, City> map;
@@ -108,7 +107,9 @@ public class Pandemic {
 		}
 	}
 
+	//TODO: Put this function where it needs to go
 	public void gameLoop(){
+		//TODO: Players need to draw cards. Epidemics also happen when they draw cards.
 		for (int i = 0; i < numPlayers; i++){
 			players.get(i).makeMove();
 		}
