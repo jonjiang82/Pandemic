@@ -71,35 +71,6 @@ public class Pandemic {
 				mapCity.addConnectedCity(map.get(connectedCities.getString(j)));
 			}
 		}
-
-		//hardcoded test cities - will be replaced with data importation
-
-//		// create all cities first
-//		map.put("Atlanta", new City("Atlanta", Disease.Type.BLUE));
-//		map.put("Chicago", new City("Chicago", Disease.Type.BLUE));
-//		map.put("Washington", new City("Washington", Disease.Type.BLUE));
-//		map.put("Miami", new City("Miami", Disease.Type.YELLOW));
-//
-//		//then add all connected cities
-//		map.get("Atlanta").addConnectedCity(map.get("Chicago"));
-//		map.get("Atlanta").addConnectedCity(map.get("Washington"));
-//		map.get("Atlanta").addConnectedCity(map.get("Miami"));
-//
-//		map.get("Chicago").addConnectedCity(map.get("Atlanta"));
-//		// map.get("Chicago").addConnectedCity(map.get("Montreal"));
-//		// map.get("Chicago").addConnectedCity(map.get("Mexico City"));
-//		// map.get("Chicago").addConnectedCity(map.get("Los Angeles"));
-//		// map.get("Chicago").addConnectedCity(map.get("San Francisco"));
-//
-//		// map.get("Washington").addConnectedCity(map.get("Montreal"));
-//		map.get("Washington").addConnectedCity(map.get("Atlanta"));
-//		// map.get("Washington").addConnectedCity(map.get("New York"));
-//		map.get("Washington").addConnectedCity(map.get("Miami"));
-//
-//		map.get("Miami").addConnectedCity(map.get("Atlanta"));
-//		map.get("Miami").addConnectedCity(map.get("Washington"));
-//		// map.get("Miami").addConnectedCity(map.get("Mexico City"));
-//		// map.get("Miami").addConnectedCity(map.get("Bogota"));
 	}
 
 	private void initializePlayerDeck(int numEpidemics) {
