@@ -20,6 +20,8 @@ public class Pandemic {
 	private long seed;
 	private Random rng;
 
+	private Image playerImage;
+
 	public Pandemic(int numPlayers, int numEpidemics) throws FileNotFoundException{
 		rng = new Random();
 		this.numPlayers = numPlayers;
@@ -47,6 +49,19 @@ public class Pandemic {
 		players = new ArrayList<Player>();
 		for (int i = 0; i < numPlayers; i++) {
 			players.add(new Player(map.get("Atlanta")));
+		}
+	}
+
+	public void Start() {
+		Display.instance.addImage(new Image("./res/pandemicmap.png", 0, 0, 1016, 720));
+		playerImage = new Image("./res/1.png", 640, 360, 64, 64);
+		Display.instance.addImage(playerImage);
+	}
+
+	public void Update() {
+		if (Display.instance.GetLeftMouseDown()) {
+			playerImage.x = (float)Display.instance.GetMouseX();
+			playerImage.y = (float)Display.instance.GetMouseY();
 		}
 	}
 

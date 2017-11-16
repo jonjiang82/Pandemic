@@ -1,3 +1,4 @@
+import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
@@ -12,6 +13,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public class Display {
+    public static Display instance;
 
     private int windowWidth = 1280;
     private int windowHeight = 720;
@@ -20,8 +22,20 @@ public class Display {
     // The window handle
     private long window;
 
-    public void run() {
+    //Input Variables
+    private boolean leftMouseDown;
+    private DoubleBuffer xpos, ypos;
+
+    public Display() {
         init();
+        images = new ArrayList<Image>();
+        try (MemoryStack stack = stackPush()) {
+            xpos = BufferUtils.createDoubleBuffer(1);
+            ypos = BufferUtils.createDoubleBuffer(1);
+        }
+    }
+
+    public void run() {
         loop();
 
         // Free the window callbacks and destroy the window
@@ -82,7 +96,7 @@ public class Display {
         // Make the window visible
         glfwShowWindow(window);
 
-        images = new ArrayList<Image>();
+        GL.createCapabilities();
     }
 
     private void loop() {
@@ -95,13 +109,14 @@ public class Display {
 
         // Set the clear color
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
-        images.add(new Image("./res/pandemicmap.png", 0, 0, 1016, 720));
         glEnable(GL_TEXTURE_2D);
 
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         while (!glfwWindowShouldClose(window)) {
+            setInputVariables();
+            Pandemic.instance.Update();
+
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
             renderImages();
             glfwSwapBuffers(window); // swap the color buffers
@@ -110,6 +125,35 @@ public class Display {
             // invoked during this call.
             glfwPollEvents();
         }
+    }
+
+    private void setInputVariables() {
+        leftMouseDown = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_TRUE;
+        glfwGetCursorPos(window, xpos, ypos);
+    }
+
+    public boolean GetLeftMouseDown() {
+        return leftMouseDown;
+    }
+
+    public double GetMouseX() {
+        return xpos.get(0);
+    }
+
+    public double GetMouseY() {
+        return ypos.get(0);
+    }
+
+    public boolean addImage(Image image) {
+        if (image != null && !images.contains(image)) {
+            images.add(image);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeImage(Image image) {
+        return images.remove(image);
     }
 
     private void renderImages() {

@@ -9,6 +9,7 @@ public class Driver {
         System.out.println("Select an option:");
         System.out.println("1. Run tests");
         System.out.println("2. Test image display");
+        System.out.print("> ");
         String option = in.nextLine();
         if (option.equals("1")) {
             System.out.print("Select number of players (2-4): ");
@@ -18,7 +19,12 @@ public class Driver {
             Tester tester = new Tester(players, difficulty);
             tester.runTests();
         } else if (option.equals("2")) {
-            new Display().run();
+            Pandemic.instance = new Pandemic(4, 4);
+            Display.instance = new Display();
+            Pandemic.instance.Start();
+            Display.instance.run();
+        } else {
+            System.out.print("Invalid");
         }
     }
 
