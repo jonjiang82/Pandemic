@@ -171,8 +171,8 @@ public class Display {
 	}
 
 	public boolean GetMouseOver(Image image) {
-		//if (GetMouseX()
-		return false;
+		return GetMouseX() >= image.x && GetMouseY() >= image.y &&
+		       GetMouseX() <= image.x + image.width && GetMouseY() <= image.y + image.height;
 	}
 
 	public boolean addImage(Image image) {
@@ -181,7 +181,7 @@ public class Display {
 
 	public boolean addImage(Image image, int layer) {
 		// abort if image is null or it's already marked as added to display
-	    if (image == null || image.addedToDisplay) {
+	    if (image == null || image.addedToDisplay || layer < 0) {
 			return false;
 		}
 

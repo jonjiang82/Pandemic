@@ -22,15 +22,30 @@ public class Pandemic {
 	private long seed;
 	private Random rng;
 
-	private Image playerImage;
+	private ArrayList<Image> selectables;
+	private Image selectedObject = null;
+	private float selectedObjectOffsetX;
+	private float selectedObjectOffsetY;
 
 	public Pandemic(int numPlayers, int numEpidemics) throws FileNotFoundException{
 		InitGame(numPlayers, numEpidemics);
 
 		GameWindow = new Display(this);
 		GameWindow.addImage(new Image("./res/pandemicmap.png", 0, 0, 1016, 720));
-		playerImage = new Image("./res/1.png", 640, 360, 64, 64);
-		GameWindow.addImage(playerImage);
+		selectables = new ArrayList<>();
+
+		Image playerImage1 = new Image("./res/1.png", 320, 180, 64, 64);
+		Image playerImage2 = new Image("./res/2.png", 320, 540, 64, 64);
+		Image playerImage3 = new Image("./res/3.png", 960, 180, 64, 64);
+		Image playerImage4 = new Image("./res/4.png", 960, 540, 64, 64);
+		GameWindow.addImage(playerImage1);
+		GameWindow.addImage(playerImage2);
+		GameWindow.addImage(playerImage3);
+		GameWindow.addImage(playerImage4);
+		selectables.add(playerImage1);
+		selectables.add(playerImage2);
+		selectables.add(playerImage3);
+		selectables.add(playerImage4);
 		GameWindow.run();
 	}
 
@@ -65,9 +80,22 @@ public class Pandemic {
 	}
 
 	public void Update() {
-		if (GameWindow.GetLeftMouseHeld()) {
-			playerImage.x = (float)GameWindow.GetMouseX();
-			playerImage.y = (float)GameWindow.GetMouseY();
+		if (GameWindow.GetLeftMouseDown()) {
+			for (Image img : selectables) {
+				if (GameWindow.GetMouseOver(img)) {
+					selectedObject = img;
+					selectedObjectOffsetX = (float)GameWindow.GetMouseX() - selectedObject.x;
+					selectedObjectOffsetY = (float)GameWindow.GetMouseY() - selectedObject.y;
+					break;
+				}
+			}
+		}
+		if (GameWindow.GetLeftMouseUp()) {
+			selectedObject = null;
+		}
+		if (GameWindow.GetLeftMouseHeld() && selectedObject != null) {
+			selectedObject.x = (float)GameWindow.GetMouseX() - selectedObjectOffsetX;
+			selectedObject.y = (float)GameWindow.GetMouseY() - selectedObjectOffsetY;
 		}
 	}
 
