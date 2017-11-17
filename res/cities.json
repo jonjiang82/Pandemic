@@ -4,8 +4,8 @@
       "Name": "Atlanta",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 235,
+        "y": 325
       },
       "ConnectedCities": [
         "Chicago",
@@ -17,8 +17,8 @@
       "Name": "Chicago",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 205,
+        "y": 265
       },
       "ConnectedCities": [
         "Atlanta",
@@ -32,8 +32,8 @@
       "Name": "Washington",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 323,
+        "y": 320
       },
       "ConnectedCities": [
         "Atlanta",
@@ -46,8 +46,8 @@
       "Name": "San Francisco",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 100,
+        "y": 295
       },
       "ConnectedCities": [
         "Tokyo",
@@ -60,8 +60,8 @@
       "Name": "Montreal",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 288,
+        "y": 262
       },
       "ConnectedCities": [
         "Chicago",
@@ -73,8 +73,8 @@
       "Name": "New York",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 352,
+        "y": 271
       },
       "ConnectedCities": [
         "Montreal",
@@ -87,8 +87,8 @@
       "Name": "London",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 505,
+        "y": 222
       },
       "ConnectedCities": [
         "New York",
@@ -101,8 +101,8 @@
       "Name": "Madrid",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 494,
+        "y": 303
       },
       "ConnectedCities": [
         "New York",
@@ -116,8 +116,8 @@
       "Name": "Paris",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 567,
+        "y": 263
       },
       "ConnectedCities": [
         "Madrid",
@@ -131,8 +131,8 @@
       "Name": "Essen",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 588,
+        "y": 206
       },
       "ConnectedCities": [
         "Paris",
@@ -145,8 +145,8 @@
       "Name": "St. Petersburg",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 679,
+        "y": 190
       },
       "ConnectedCities": [
         "Essen",
@@ -158,8 +158,8 @@
       "Name": "Milan",
       "DiseaseType": "BLUE",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 623,
+        "y": 247
       },
       "ConnectedCities": [
         "Essen",
@@ -171,8 +171,8 @@
       "Name": "Miami",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 289,
+        "y": 393
       },
       "ConnectedCities": [
         "Atlanta",
@@ -185,8 +185,8 @@
       "Name": "Mexico City",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 194,
+        "y": 406
       },
       "ConnectedCities": [
         "Chicago",
@@ -200,8 +200,8 @@
       "Name": "Los Angeles",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 117,
+        "y": 378
       },
       "ConnectedCities": [
         "Sydney",
@@ -214,8 +214,8 @@
       "Name": "Bogota",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 282,
+        "y": 477
       },
       "ConnectedCities": [
         "Miami",
@@ -229,8 +229,8 @@
       "Name": "Lima",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 253,
+        "y": 566
       },
       "ConnectedCities": [
         "Bogota",
@@ -242,8 +242,8 @@
       "Name": "Santiago",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 264,
+        "y": 657
       },
       "ConnectedCities": [
         "Lima"
@@ -253,8 +253,8 @@
       "Name": "Buenos Aires",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 350,
+        "y": 642
       },
       "ConnectedCities": [
         "Bogota",
@@ -265,8 +265,8 @@
       "Name": "Sao Paulo",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 399,
+        "y": 578
       },
       "ConnectedCities": [
         "Bogota",
@@ -279,8 +279,8 @@
       "Name": "Lagos",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 560,
+        "y": 462
       },
       "ConnectedCities": [
         "Sao Paulo",
@@ -292,8 +292,8 @@
       "Name": "Kinshasa",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 611,
+        "y": 520
       },
       "ConnectedCities": [
         "Lagos",
@@ -305,8 +305,8 @@
       "Name": "Khartoum",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 665,
+        "y": 447
       },
       "ConnectedCities": [
         "Lagos",
@@ -319,8 +319,8 @@
       "Name": "Johannesburg",
       "DiseaseType": "YELLOW",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 660,
+        "y": 603
       },
       "ConnectedCities": [
         "Kinshasa",
@@ -331,8 +331,8 @@
       "Name": "Algiers",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 585,
+        "y": 349
       },
       "ConnectedCities": [
         "Madrid",
@@ -345,8 +345,8 @@
       "Name": "Istanbul",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 660,
+        "y": 294
       },
       "ConnectedCities": [
         "Milan",
@@ -361,8 +361,8 @@
       "Name": "Cairo",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 648,
+        "y": 365
       },
       "ConnectedCities": [
         "Algiers",
@@ -376,8 +376,8 @@
       "Name": "Moscow",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 725,
+        "y": 246
       },
       "ConnectedCities": [
         "St. Petersburg",
@@ -389,8 +389,8 @@
       "Name": "Baghdad",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 718,
+        "y": 337
       },
       "ConnectedCities": [
         "Riyadh",
@@ -404,8 +404,8 @@
       "Name": "Riyadh",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 728,
+        "y": 412
       },
       "ConnectedCities": [
         "Baghdad",
@@ -417,8 +417,8 @@
       "Name": "Tehran",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 781,
+        "y": 285
       },
       "ConnectedCities": [
         "Moscow",
@@ -431,8 +431,8 @@
       "Name": "Karachi",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 797,
+        "y": 364
       },
       "ConnectedCities": [
         "Tehran",
@@ -446,8 +446,8 @@
       "Name": "Mumbai",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 805,
+        "y": 425
       },
       "ConnectedCities": [
         "Karachi",
@@ -459,8 +459,8 @@
       "Name": "Delhi",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 858,
+        "y": 341
       },
       "ConnectedCities": [
         "Tehran",
@@ -474,8 +474,8 @@
       "Name": "Chennai",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 870,
+        "y": 470
       },
       "ConnectedCities": [
         "Mumbai",
@@ -489,8 +489,8 @@
       "Name": "Kolkata",
       "DiseaseType": "BLACK",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 916,
+        "y": 361
       },
       "ConnectedCities": [
         "Delhi",
@@ -503,8 +503,8 @@
       "Name": "Beijing",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 963,
+        "y": 267
       },
       "ConnectedCities": [
         "Seoul",
@@ -515,8 +515,8 @@
       "Name": "Seoul",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 1036,
+        "y": 263
       },
       "ConnectedCities": [
         "Beijing",
@@ -528,8 +528,8 @@
       "Name": "Shanghai",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 968,
+        "y": 324
       },
       "ConnectedCities": [
         "Beijing",
@@ -543,8 +543,8 @@
       "Name": "Tokyo",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 1095,
+        "y": 295
       },
       "ConnectedCities": [
         "Seoul",
@@ -557,8 +557,8 @@
       "Name": "Osaka",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 1102,
+        "y": 358
       },
       "ConnectedCities": [
         "Tokyo",
@@ -569,8 +569,8 @@
       "Name": "Taipei",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 1042,
+        "y": 382
       },
       "ConnectedCities": [
         "Osaka",
@@ -583,8 +583,8 @@
       "Name": "Hong Kong",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 975,
+        "y": 394
       },
       "ConnectedCities": [
         "Taipei",
@@ -599,8 +599,8 @@
       "Name": "Bangkok",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 927,
+        "y": 431
       },
       "ConnectedCities": [
         "Kolkata",
@@ -614,8 +614,8 @@
       "Name": "Ho Chi Minh City",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 979,
+        "y": 490
       },
       "ConnectedCities": [
         "Bangkok",
@@ -628,8 +628,8 @@
       "Name": "Manila",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 1060,
+        "y": 485
       },
       "ConnectedCities": [
         "Hong Kong",
@@ -643,8 +643,8 @@
       "Name": "Jakarta",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 928,
+        "y": 541
       },
       "ConnectedCities": [
         "Chennai",
@@ -657,8 +657,8 @@
       "Name": "Sydney",
       "DiseaseType": "RED",
       "Coordinates": {
-        "x": 5,
-        "y": 5
+        "x": 1108,
+        "y": 654
       },
       "ConnectedCities": [
         "Jakarta",

@@ -27,6 +27,8 @@ public class Pandemic {
 	private float selectedObjectOffsetX;
 	private float selectedObjectOffsetY;
 
+	private Image circle;
+
 	public Pandemic(int numPlayers, int numEpidemics) throws FileNotFoundException{
 		InitGame(numPlayers, numEpidemics);
 
@@ -46,6 +48,11 @@ public class Pandemic {
 		selectables.add(playerImage2);
 		selectables.add(playerImage3);
 		selectables.add(playerImage4);
+
+		circle = new Image("./res/circle.png", 0, 0, 18, 18);
+		GameWindow.addImage(circle);
+		circle.visible = false;
+
 		GameWindow.run();
 	}
 
@@ -80,6 +87,7 @@ public class Pandemic {
 	}
 
 	public void Update() {
+		// selecting image to drag
 		if (GameWindow.GetLeftMouseDown()) {
 			for (Image img : selectables) {
 				if (GameWindow.GetMouseOver(img)) {
@@ -90,12 +98,33 @@ public class Pandemic {
 				}
 			}
 		}
+
+		// unselecting image
 		if (GameWindow.GetLeftMouseUp()) {
 			selectedObject = null;
 		}
+
+		// dragging image
 		if (GameWindow.GetLeftMouseHeld() && selectedObject != null) {
 			selectedObject.x = (float)GameWindow.GetMouseX() - selectedObjectOffsetX;
 			selectedObject.y = (float)GameWindow.GetMouseY() - selectedObjectOffsetY;
+		}
+
+		// hovering cities
+		boolean overCity = false;
+		ArrayList<City> cities = getCities();
+		for (City city : cities) {
+			if (GameWindow.GetMouseOver(city.getX() * 72/85, city.getY() * 72/85, 9)) {
+				circle.visible = true;
+				circle.x = city.getX() * 72/85 - 9;
+				circle.y = city.getY() * 72/85 - 9;
+				overCity = true;
+				break;
+			}
+		}
+
+		if (!overCity) {
+			circle.visible = false;
 		}
 	}
 
@@ -108,7 +137,9 @@ public class Pandemic {
 		JSONArray cities = root.getJSONArray("Cities");
 		for (int i = 0; i < cities.length(); i++) {
 			JSONObject city = cities.getJSONObject(i);
-			City mapCity = new City(city.getString("Name"), Disease.getTypeFromString(city.getString("DiseaseType")));
+			JSONObject coords = city.getJSONObject("Coordinates");
+			City mapCity = new City(city.getString("Name"), Disease.getTypeFromString(city.getString("DiseaseType")),
+												   coords.getFloat("x"), coords.getFloat("y"));
 			map.put(city.getString("Name"), mapCity);
 		}
 		for (int i = 0; i < cities.length();i++){

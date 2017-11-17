@@ -170,10 +170,14 @@ public class Display {
 		return ypos.get(0);
 	}
 
-	public boolean GetMouseOver(Image image) {
-		return GetMouseX() >= image.x && GetMouseY() >= image.y &&
-		       GetMouseX() <= image.x + image.width && GetMouseY() <= image.y + image.height;
-	}
+    public boolean GetMouseOver(Image image) {
+        return GetMouseX() >= image.x && GetMouseY() >= image.y &&
+               GetMouseX() <= image.x + image.width && GetMouseY() <= image.y + image.height;
+    }
+
+    public boolean GetMouseOver(double x, double y, double radius) {
+        return radius >= Math.sqrt(Math.pow(GetMouseX() - x, 2) + Math.pow(GetMouseY() - y, 2));
+    }
 
 	public boolean addImage(Image image) {
 	    return addImage(image, 0);

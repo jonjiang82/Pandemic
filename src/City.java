@@ -7,15 +7,20 @@ public class City{
 	private String name;
 	private ArrayList<City> connectedCities;
 	private Disease.Type diseaseType;
+	private float coordX;
+	private float coordY;
+
 	private boolean researchStation;
 	private int[] infections;
 
-	public City(String name, Disease.Type diseaseType){
+	public City(String name, Disease.Type diseaseType, float coordX, float coordY){
 		this.name = name;
 		this.connectedCities = new ArrayList<City>();
 		infections = new int[ Disease.Type.values().length];
 		this.diseaseType = diseaseType;
 		researchStation = false;
+		this.coordX = coordX;
+		this.coordY = coordY;
 	}
 
 	public ArrayList<City> getConnectedCities(){
@@ -48,6 +53,14 @@ public class City{
 
 	public boolean hasResearchStation() {
 		return researchStation;
+	}
+
+	public float getX() {
+		return coordX;
+	}
+
+	public float getY() {
+		return coordY;
 	}
 
 	public String getName(){
