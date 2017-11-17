@@ -20,9 +20,6 @@ public class Driver {
             tester.runTests();
         } else if (option.equals("2")) {
             Pandemic.instance = new Pandemic(4, 4);
-            Display.instance = new Display();
-            Pandemic.instance.Start();
-            Display.instance.run();
         } else {
             System.out.print("Invalid");
         }

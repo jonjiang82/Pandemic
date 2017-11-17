@@ -7,6 +7,8 @@ import org.json.*;
 public class Pandemic {
 	public static Pandemic instance; // when creating a new Pandemic, remember to set this static instance
 
+	public Display GameWindow;
+
 	private HashMap<String, City> map;
 	private ArrayList<PlayerCard> playerDeck;
 	private ArrayList<PlayerCity> infectionDeck;
@@ -23,9 +25,19 @@ public class Pandemic {
 	private Image playerImage;
 
 	public Pandemic(int numPlayers, int numEpidemics) throws FileNotFoundException{
+		InitGame(numPlayers, numEpidemics);
+
+		GameWindow = new Display(this);
+		GameWindow.addImage(new Image("./res/pandemicmap.png", 0, 0, 1016, 720));
+		playerImage = new Image("./res/1.png", 640, 360, 64, 64);
+		GameWindow.addImage(playerImage);
+		GameWindow.run();
+	}
+
+	public void InitGame(int numPlayers, int numEpidemics) throws FileNotFoundException {
 		rng = new Random();
 		this.numPlayers = numPlayers;
-	
+
 		//Initialize Board
 		infectionRate = 2;
 		infectionCounter = 1;
@@ -33,7 +45,7 @@ public class Pandemic {
 		researchStationsLeft = 6;
 
 		//Initialize Diseases
-		diseases = new HashMap<Disease.Type, Disease>();
+		diseases = new HashMap<>();
 		for (Disease.Type t : Disease.Type.values()) {
 			diseases.put(t, new Disease(t));
 		}
@@ -52,21 +64,15 @@ public class Pandemic {
 		}
 	}
 
-	public void Start() {
-		Display.instance.addImage(new Image("./res/pandemicmap.png", 0, 0, 1016, 720));
-		playerImage = new Image("./res/1.png", 640, 360, 64, 64);
-		Display.instance.addImage(playerImage);
-	}
-
 	public void Update() {
-		if (Display.instance.GetLeftMouseDown()) {
-			playerImage.x = (float)Display.instance.GetMouseX();
-			playerImage.y = (float)Display.instance.GetMouseY();
+		if (GameWindow.GetLeftMouseHeld()) {
+			playerImage.x = (float)GameWindow.GetMouseX();
+			playerImage.y = (float)GameWindow.GetMouseY();
 		}
 	}
 
 	private void initializeMap() throws FileNotFoundException{
-		map = new HashMap<String, City>();
+		map = new HashMap<>();
 		File citiesJSON = new File("res/cities.json");
 		FileInputStream citiesJSONinput = new FileInputStream(citiesJSON);
 		JSONTokener citiesTokener = new JSONTokener(citiesJSONinput);

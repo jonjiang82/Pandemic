@@ -7,6 +7,8 @@ import org.lwjgl.*;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Image {
+	public boolean visible = true;
+	public boolean addedToDisplay = false;
 
 	public float x;
 	public float y;
