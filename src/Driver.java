@@ -7,18 +7,16 @@ public class Driver {
     public static void main(String[] args) throws FileNotFoundException{
         Scanner in = new Scanner (System.in);
         System.out.println("Select an option:");
-        System.out.println("1. Run tests");
-        System.out.println("2. Test image display");
+        System.out.println("1. Player 1");
+        System.out.println("2. Player 2+");
+        System.out.print("> ");
         String option = in.nextLine();
         if (option.equals("1")) {
-            System.out.print("Select number of players (2-4): ");
-            int players = Integer.parseInt(in.nextLine());
-            System.out.print("Select difficulty (4-6): ");
-            int difficulty = Integer.parseInt(in.nextLine());
-            Tester tester = new Tester(players, difficulty);
-            tester.runTests();
+        	Pandemic.instance = new Pandemic(4, 4);
         } else if (option.equals("2")) {
-            new Display().run();
+        	System.out.println("You are player...?")
+        	int playNum = Integer.parseInt(in.nextLine());
+        	Pandemic.instance = new Pandemic(4, 4);
         }
     }
 
